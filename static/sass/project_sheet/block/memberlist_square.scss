@@ -1,0 +1,454 @@
+@import "i4p/mixins";
+@import "i4p/constants";
+@import "i4p/fonts";
+
+$sprite-layout: smart;
+@import "compass/utilities/sprites/base";
+
+// create sprites for progressbar
+$progressbar-sprite-dimensions: true;
+@import "project/progressbar/*.png"; // */
+@include all-progressbar-sprites(true);
+
+// @import "project/topic/*.png"; // */
+
+$picto-sprite-dimensions: true;
+@import "project/picto/*.png"; // */
+@include all-picto-sprites(true);
+
+$topic-sprite-dimensions: true;
+@import "project/topic/*.png"; // */
+@include all-topic-sprites(true);
+
+$i4p-slider-sprite-dimensions: true;
+$i4p-slider-sprites: sprite-map("project_sheet/i4p-slider/*.png");
+@import "project_sheet/i4p-slider/*.png"; // */
+// @include all-i4p-slider-sprites; // NO AUTO INCLUDE
+
+$i4p-memberlist-sprite-dimensions: true;
+$i4p-memberlist-sprites: sprite-map("project_sheet/i4p-memberlist/*.png");
+@import "project_sheet/i4p-memberlist/*.png"; // */
+
+
+$memberListFancySquare_sizeContainerWidth: 300px;
+$memberListFancySquare_sizeContainerHeight: 65px;
+
+$memberListFancySquare_sizeItemMargin: 10px;
+
+$memberListFancySquare_sizeWindowMarginWidth: 30px;
+$memberListFancySquare_sizeWindowWidth: $memberListFancySquare_sizeContainerWidth - (2 * $memberListFancySquare_sizeWindowMarginWidth);
+$memberListFancySquare_sizeWindowHeight: 65px;
+
+
+$memberListFancySquare_sizeWidth: 88px;
+$memberListFancySquare_sizeHeight: 52px;
+
+
+.memberlist-overlay.square.fancy {
+    @include all-i4p-memberlist-sprites; // include all sprites within memberlist-modal
+
+    @include i4p-transition(all .5s ease);
+    @include border-radius($sizeRadiusSmall);
+    @include box-sizing(border-box);
+    @include i4p-box-shadow-bottomleft;
+
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    opacity: 0;
+    z-index: 99;
+
+    background-color: $colorDarkGrey;
+    min-width: 200px;
+    min-height: 60px;
+    padding: $sizePaddingMedium;
+
+    &.open-member,
+    &.open-overlay {
+	display: block;
+	opacity: 1;
+    }
+
+    .avatar {
+	@include border-radius($sizeRadiusSmall);
+	display: block;
+	float: left;
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+	border: 1px solid $colorMedGrey;
+    }
+
+    .details {
+	margin-left: 75px;
+	font-size: $sizeTextSmall;
+
+	.fullname {
+	    @include i4p-font-subtitle($sizeTextNormal);
+	    line-height: $sizeTextNormal;
+	    font-style: italic;
+	    color: white;
+	    white-space: nowrap;
+	    margin: 0;
+	}
+	.position {
+	    @include i4p-font-subtitle($sizeTextTiny);
+	    font-weight: normal;
+	    display: block;
+	    margin-bottom: $sizeMarginSmall;
+	    white-space: nowrap;
+	    font-style: italic;
+	    color: white;
+	}
+
+	.contact, .profile {
+	    @include i4p-sprite-margin('i4p-memberlist');
+	    @include i4p-sprite('i4p-memberlist');
+	    @include i4p-transition(all .5s ease);
+
+	    display: block;
+
+	    color: $colorMedGrey;
+
+	    &:hover {
+		color: $colorLightGrey;
+		text-decoration: none;
+	    }
+	}
+	.contact, .profile {
+	    & > i { display: inline-block; }
+	}
+    }
+}
+
+
+.memberlist.square.fancy {
+    @include clearfix;
+    @include border-radius($sizeRadiusSmall);
+    @include box-sizing(border-box);
+    @include i4p-transition(all .5s ease);
+
+    width: $memberListFancySquare_sizeContainerWidth;
+    // width: inherit;
+    height: 70px;
+    margin-bottom:12px;
+    overflow: hidden;
+    background-color: #f2f2f2;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+
+    // hide block before anythingSlider initialization
+    & > .memberlist-slider {
+		height:54px;
+		overflow:hidden;
+		margin:0 0 0 10px;
+		background:image-url('project_sheet/members_empty.png') no-repeat -8px -8px;
+	// FIXME: add a loader as a background image
+    }
+
+
+    // NOTE: do not style the slider itself, the JS overrides everything.
+    .anythingSlider {
+	// height: $memberListFancySquare_sizeContainerHeight;
+	// width: $memberListFancySquare_sizeContainerWidth;
+	// padding-left: 22px;
+	// padding-right: 22px;
+		height:67px !important;
+
+	.anythingWindow {
+	    height: 100%;
+	    overflow: hidden;
+	    position: relative;
+	    width: $memberListFancySquare_sizeWindowWidth;
+	    margin-left: $memberListFancySquare_sizeWindowMarginWidth;
+	    margin-right: $memberListFancySquare_sizeWindowMarginWidth;
+	}
+
+	.anythingBase {
+	    position: absolute;
+	    margin: 0;
+	    // padding-left: ;
+	    // background-color: red;
+
+
+	    & > li {
+		@include box-sizing(border-box);
+		@include i4p-transition(all .5s ease);
+
+		display: block;
+		float: left;
+		margin: 0;
+		position: relative;
+		width: 60px;
+		opacity: 1;
+		visibility: visible;
+
+		img {
+		    position: absolute;
+		    left: 5px;
+		}
+
+		&.cloned {
+		    visibility: hidden;
+		    opacity: 0;
+		}
+	    }
+	}
+
+	.anythingControls {
+	    position: absolute;
+	    top: 100px;
+	    left: 0;
+	    display: block;
+	    height: $memberListFancySquare_sizeContainerHeight;
+	    width: $memberListFancySquare_sizeContainerWidth;
+	}
+
+	.arrow {
+	    position: absolute;
+	    top: 25px;
+
+	    &.back {
+		left: 10px;
+		background: $i4p-slider-sprites no-repeat;
+		@include i4p-slider-sprite(prev); 
+	    }
+
+	    &.forward {
+		right: 10px;
+		background: $i4p-slider-sprites no-repeat;
+		@include i4p-slider-sprite(next); 
+	    }
+
+	    & > a {
+		@include i4p-transition(all .5s ease);
+		font-size: $sizeTextLarge;
+		font-family: $fontOpenSans;
+		font-stretch: condensed;
+		font-size: $sizeTextHuge;
+		color: $colorMedGrey;
+
+		&:hover {
+		    color: $colorDarkGrey;
+		    text-decoration: none;
+		}
+	    }
+	}
+
+	.panel {
+	    height: $memberListFancySquare_sizeContainerHeight + 2;
+
+	    img {
+		@include i4p-transition(all .5s ease);
+		outline: 1px solid rgba(255,255,255,0);
+	    }
+
+	    &.activePage {
+		img {
+		    outline: 1px solid rgba(255,255,255,0.5);
+		}
+	    }
+
+	    .description, .source, .licence, .delete {
+		position: absolute;
+		top: 0;
+		height: 1px;
+		display: none;
+		visibility: hidden;
+	    }
+
+	}
+    }
+@include border-radius($sizeRadiusSmall);
+    input {
+	display: none;
+    }
+
+
+    .slide-input {
+	display: none;
+    }
+
+
+
+	.icomember {
+		display:block;
+		position:absolute;
+		top:34px;
+		right:7px;
+		background:image-url('project_sheet/icomember.png') no-repeat top left;
+		width:10px;
+		height:14px;
+	}
+
+	.see-all-button {
+		position:absolute;
+		overflow:hidden;
+		z-index:1000;
+		width:25px;
+		height:100%;
+		top:0;
+		right:0;
+		background:#303030;
+		@include border-radius(0 $sizeRadiusSmall $sizeRadiusSmall 0);
+		@include i4p-transition(all .5s ease);
+
+		a {
+			color:white;
+			position:absolute;
+			right:0;
+			top:0;
+			display:block;
+			height:100%;
+			background:image-url('project_sheet/members_seeall_bt.png') no-repeat 3px 1px;
+			text-decoration:none;
+
+			span {
+				display:block;
+				height:100%;
+				padding:20px 70px 0 80px;
+				width:300px;
+				@include box-sizing(border-box);
+				background:image-url('project_sheet/members_seeall_arrow.png') no-repeat 98% 30px;
+			}
+		}
+
+		&:hover {
+			width:100%;
+			@include border-radius($sizeRadiusSmall);
+		}
+	}
+}
+
+// FIXME: move block rules elsewhere
+.member-block {
+    @include i4p-layout-block;
+    @include i4p-seemore-class;
+    position:relative;
+
+    .seemore {
+    	position:absolute;
+    	top:10px;
+    	right:0;
+    }
+
+    h2 {
+	@include i4p-font-title($sizeTextLarge);
+    }
+    
+    h3 {
+    @include i4p-font-title($sizeTextBig);
+    }
+    .fans-is-fan-block {
+        .addthis_toolbox {
+            display: inline-block;
+        }
+    }
+    .fans-not-a-fan-block {
+        form {
+            display: inline-block;
+            margin: 0;
+        }
+
+        #fans-add-form input {
+        	 border: 0 none;
+    		@include border-radius(5px);
+		    color: #242424;
+		    font-size: 1.2rem;
+		    font-weight: bold;
+		    height: 35px;
+		    padding: 0 40px 0 10px;
+        	background:#EBEBEB image-url('project_sheet/valid.png') no-repeat 98% 42%;
+        }
+    }
+
+    .join-link {
+    	display:block;
+    	width:135px;
+    	border:1px solid #dadada;
+    	height:27px;
+    	line-height:27px;
+    	color:#706f6f;
+    	float:left;
+    	margin:0 22px 0 0;
+    	@include i4p-background-vertical-gradient(#f1f1f1, #dadada);
+    	@include border-radius(4px);
+
+    	span {
+    		display:block;
+    		padding-left:35px;
+    		height:27px;
+    		font-weight:bold;
+    		background:image-url('project_sheet/ico_join.png') no-repeat 10px center;
+    	}
+
+    	&:hover {
+    		text-decoration:none;
+    		@include i4p-background-vertical-gradient(#dadada, #f1f1f1);
+    	}
+    }
+
+    .fan-link {
+    	display:block;
+    	width:138px;
+    	border:1px solid #0395b4;
+    	height:27px;
+    	line-height:27px;
+    	color:white;
+    	padding:0;
+    	font-size:1.2rem;
+    	@include i4p-background-vertical-gradient(#4ab9e8, #3a91b5);
+    	@include border-radius(4px);
+
+    	span {
+    		display:block;
+    		padding-left:35px;
+    		height:27px;
+    		font-weight:bold;
+    		text-align:left;
+    		background:image-url('project_sheet/ico_like.png') no-repeat 10px center;
+    	}
+
+    	&:hover {
+    		text-decoration:none;
+    		@include i4p-background-vertical-gradient(#3a91b5, #4ab9e8);
+    	}
+    }
+
+    .joined {
+    	display:block;
+    	width:103px;
+    	border:1px solid #706f6f;
+    	height:27px;
+    	line-height:27px;
+    	color:white;
+    	float:left;
+    	margin:0 10px 0 0;
+    	padding-left:35px;
+    	font-size:1.1rem;
+    	background:#706f6f image-url('project_sheet/ico_joined.png') no-repeat 10px center;
+    	@include border-radius(4px);
+    }
+
+    .faned {
+    	display:block;
+    	width:103px;
+    	border:1px solid #706f6f;
+    	height:27px;
+    	line-height:27px;
+    	color:white;
+    	float:left;
+    	margin:0 0px 0 0;
+    	padding-left:35px;
+    	font-size:1.1rem;
+    	background:#706f6f image-url('project_sheet/ico_faned.png') no-repeat 10px center;
+    	@include border-radius(4px);
+    }
+
+    p.counts {
+    	font-size:1.25rem;
+    }
+}

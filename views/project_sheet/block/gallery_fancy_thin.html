@@ -1,0 +1,49 @@
+<!--
+Parameters for this block
+=========================
+
+FIXME: use picture list instead of project_translation
+
+* project : I4pProjectTranslation
+-->
+<!--
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.anythingslider-1.8.6.js"></script>
+<script src="{{ STATIC_URL }}js/compass_twitter_bootstrap/bootstrap-modal.js"></script>
+<script type="text/javascript">
+$.getScript(I4P_STATIC_URL+"js/project_sheet/block/gallery_fancy_thin.js");
+</script>
+-->
+
+<link type="text/css" rel="stylesheet" href="static/css/project_sheet/block/gallery_fancy_thin.css" />
+
+<div class="project-gallery-widget">
+  <ul>
+      <li ng-repeat="picture in project.project.pictures" class="picture
+		 {% if project_translation.master.pictures.all|length < 3 %}
+		 {% comment %} FOR SMALL GALLERIES, WE DO ONLY BIG IMAGES {% endcomment %}
+		 picture-big
+		 {% else %}
+		 {% comment %} FOR BIGGER GALLERIES,}WE ALTERNATE ONE BIG AND TWO SMALL {% endcomment %}
+		 {% if forloop.counter0|divisibleby:"3" %}picture-big{% else %}picture-small{% endif %}
+		                                       {% endif %}
+		                                       "
+	  data-modal-target-id="gallery-{{ gallery_modal_unique_counter }}"
+	  data-slider-view-id="gallery-modal-view-{{ gallery_modal_unique_counter }}"
+	  data-toggle="i4p-gallery-modal"
+	  data-slider-index="{{ forloop.counter }}"
+	  >
+	<div class="image">
+	  <img ng-src="{{ media_uri }}{{ picture.url }}" class="color" alt="">
+	  <img ng-src="{{ media_uri }}{{ picture.url }}" class="bw" alt="">
+	</div>
+	<div class="description">
+	  {{ picture.desc }}
+	</div>
+	<!-- TODO: rewrite with semantic HTML if possible -->
+	<div class="overlay-one"></div>
+	<div class="overlay-two"></div>
+      </li>
+  </ul>
+</div>
+
+{% include "project_sheet/block/gallery_modal.html" %}

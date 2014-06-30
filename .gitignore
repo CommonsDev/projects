@@ -1,0 +1,9 @@
+node_modules/*
+bdl/
+#*#
+~*
+static/.sass-cache
+static/css
+static/compiled_images
+.DS_Store
+scripts/vendor

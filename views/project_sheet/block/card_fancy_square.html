@@ -1,0 +1,48 @@
+<!--
+Parameters for this block
+=========================
+
+* project : I4pProject
+-->
+
+<link rel="stylesheet" type="text/css" media="screen" href="static/css/project_sheet/block/card_fancy_square.css" />
+
+<a class="project square fancy"
+    href="{{ project.get_absolute_url }}" >
+
+    <div class="summary" data-action-1="See the project" />
+        <h2 class="title"><span>{{ project.title }}</span></h2>
+        <p class="description">
+            {{ project.baseline }}
+        </p>
+    </div> <!-- summary -->
+
+    <div class="card" >
+        <div class="photo">
+            <img ng-if="project.pictures.length > 0" ng-src="{{ project.pictures[0].thumbnail_idcard.url }}" alt=""/>
+        </div> <!-- photo -->
+
+        <div class="project-progress">
+            <p class="status progressbar-{{project.status }}">{{ project.get_status_display }}</p>
+        </div>
+
+        <div class="pictos">
+            <div ng-if="project.member.length" class="picto-team"></div>
+            <div ng-if="project.completion_progress=='EDIT'" class="picto-editing"></div>
+            <div ng-if="project.master.best_of==true" class="picto-bestof"></div>
+        </div>
+
+        <div class="location">
+          <div ng-if="project.location.country">
+            <img ng-src="{{ project.location.country.flag }}" class="flag" title="{{ project.location.get_country_display }}" alt="{{ project.location.get_country_display }}"/>
+            {{project.location.get_country_display}}
+          </div>
+        </div>
+
+        <div ng-if="project.topics.length" class="topic">
+            <div class="illustration topic-{{ project.topics[0].topic.slug }}-small" title="{{ project.topics[0].topic.label }}"></div>
+            <p class="description">{{ project.topics[0].topic.label }}</p>
+        </div>
+    </div>
+
+</a>

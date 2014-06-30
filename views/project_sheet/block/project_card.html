@@ -1,0 +1,38 @@
+<!--
+Parameters for this block
+=========================
+
+* project : I4pProject
+-->
+
+<link type="text/css" rel="stylesheet" href="static/css/project_sheet/block/project_card.css" />
+
+<div class="project-card">
+  <div ng-if="project.best_of" class="cocarde">&nbsp;</div>
+
+    <div class="top">
+      <a ng-if="project.pictures.length" ui-sref="project-detail({id: project.id})"><img height="120" width="200" ng-src="{{ project.pictures[0].thumb }}" alt="" /></a>
+      <a ng-if="!project.pictures.length" ui-sref="project-detail({id: project.id})"><img height="120" width="200" src="static/images/project_sheet/project_card/img_projcard.jpg" alt="" /></a>
+
+      <h2 title="{{ project.title }}" ng-cloak>{{ project.title }}</h2>
+      <div class="progressbar"><span>{{ project.get_status_display }}</span></div>
+      <p>
+        {{ project.baseline }}
+      </p>
+    </div>
+    <div class="bottom">
+      <span ng-if="project.members.length" class="supported tipsed on" title="project with members">Project with members ({{project.members.count}})</span>
+      <span ng-if="project.fans.length" class="supported faned tipsed on" title="project with fans">Project with fans ({{project.fans.count}})</span>
+      <span class="country"><img ng-src="{{ project.locations.all.0.country.flag }}" alt="{{ project.locations.all.0.country.code }}" /> {{ project.locations.all.0.country.name }}</span>
+      <p>
+            <span class="needs tipsed on" class="tipsed on" title="<strong>{{ need_count }}</strong> needs">{{ need_count }}</span>
+      </p>
+    </div>
+    <div class="hover">
+        <div class="name" title="{{ project.title }}">{{ project.title }}</div>
+        <p>
+            {{ project.about_section }}
+        </p>
+        <div class="more"><a ui-sref="project-detail({id: project.id})">See the project</a></div>
+    </div>
+</div>

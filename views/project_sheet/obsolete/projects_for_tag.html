@@ -1,0 +1,16 @@
+{% load sekizai_tags %}
+{% load pagination_tags %}
+<div style="position:relative; top:25px; height:35px;">
+	{% autopaginate project_list 12 %}
+	{% paginate using "project_sheet/obsolete/project_list_pagination.html" %}
+</div>
+<div id="projects_list">
+
+	{% include "project_sheet/block/cardlist_fancy_square.html" %}
+
+</div>
+<div class="clear"></div>
+	
+<div>
+	{% paginate using "project_sheet/obsolete/project_list_pagination.html" %}
+</div>

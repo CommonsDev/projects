@@ -1,0 +1,365 @@
+// THE MINIMAL COMMON CSS STYLE FOR ALL PAGES : defining root fonts size
+
+// the root font size is defined depending on the HTML element
+html {
+    // the default font size for browsers is 16px, so we adjust it to 10px.for easy calculations.
+    font-size: 62.5%;
+}
+
+// then define desired font size for body
+body {
+    font-size: 1.2rem;
+}
+
+// END OF THE MINIMAL COMMON CSS STYLE FOR ALL PAGES.
+
+@import "i4p/mixins";
+@import "i4p/constants";
+
+//
+// BIG FAT WARNING : ALL THE REST MUST BE DELETED OR MOVED ELSEWHERE.
+//
+
+/* --TEMP---------------------------------------------------------------------------------------------------- */
+
+// move to header specific (block) css files
+#beta-logo {
+    background-image: image-url('base/beta-logo.png');
+    background-repeat: no-repeat;
+    width: 90px;
+    height: 90px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9000;
+}
+
+.centreur, .center {	
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width:977px;	
+}
+
+.global {
+
+}
+
+a {
+    text-decoration: none;
+    border:0px;	
+}
+
+
+a:hover {
+    text-decoration:underline;	
+}
+
+#focus-menu ul{
+    padding: 0px;
+    margin: 0px;
+
+    li {
+	list-style-type: none;
+	display: inline;
+	padding: 0px;
+	margin: 0px;
+    }
+}
+
+.close {
+    font-family: Verdana,Arial,Sans-serif;
+    font-size: 9px;
+    color: black;
+    float: right;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-right: 2px;
+    top: 4px;
+    font-style: normal;
+
+    @include border-radius(2px);
+}
+
+
+.close:hover {
+    color:white;	
+    text-decoration: none;
+    background-color: black;
+}
+
+
+.del {
+    font-family: Verdana,Arial,Sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-right: 2px;
+    top: 4px;
+    font-style:normal;	
+    color:white;	
+    text-decoration: none;
+    background-color: black;
+
+    @include border-radius(2px); 	
+
+    position: absolute;
+    right: 19px;
+    z-index: 4000;
+
+}
+
+
+.del:hover {
+    color:black;	
+    text-decoration: none;
+    background-color: white;
+}
+
+.social-login {
+    
+    list-style-type:none;
+    display:inline;
+    strong{
+        color: $colorLightBlue !important;
+    }
+}
+
+/*---- Projects hover menu ----*/
+
+#projects-hover-menu-zone, #about-hover-menu-zone {
+    background-color: #0f0f0f;
+    width: 100%;
+    position: absolute;
+    z-index: 900;
+
+    .hover-menu {
+	color: white;
+	margin: 20px auto;
+
+	a {
+	    color: white;
+	}
+
+	a:hover {
+	    text-decoration: none;
+	}
+    }
+}
+
+#projects-hover-menu-zone {
+
+    .hover-menu {
+
+	#filters_links {
+
+	    ul li {
+		display: list-item;
+		padding: 4px 0px;
+		margin: 2px 0px;
+
+		a {
+		    font-family: "OpenSans_obsolete", Arial, Helvetica, sans-serif !important;
+		    font-size: 12px;
+		    text-transform: uppercase;
+		    color: white;
+		    padding: 3px;
+		}
+
+		a:hover {
+		    color: black;
+		    background-color: white;
+		}
+	    }
+
+	    ul li#allprojects_button a {
+		background-image: image-url('base/allprojects_button-bg.jpg');
+		@include border-radius(4px);
+	    }
+	}
+
+	h2 {
+	    font-family: "OpenSansBold_obsolete", Arial, Helvetica, sans-serif !important;
+	    font-size: 12px;
+	    text-transform: uppercase;
+	    margin: 4px 0px;
+	}
+
+	hr {
+	    margin: 3px 0px;
+	}
+
+	ul.projects_lists {
+
+	    li {
+		display: list-item;
+		padding: 4px 0px;
+		font-size: 11px;
+	    }
+
+	    li:hover {
+		background-color: white;
+
+		a {
+		    color: black;
+		}
+	    }
+	}
+    }
+}
+
+#about-hover-menu-zone {
+
+    .hover-menu {
+
+	ul {
+
+	    li {
+		margin: 0px 5px;
+		padding: 3px 5px;
+	    }
+
+	    li:hover {
+		background-color: white;
+
+		a {
+		    color: black;
+		}
+	    }
+	}
+    }
+}
+/* -- Tools -- */
+
+
+
+#langage-tool {
+
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    float: right;
+    color: #979797;
+    text-align: center;
+    z-index: 300;
+
+    form {
+	left: 5px;
+	position: relative;
+
+	select {
+
+
+	}
+
+    }
+    ul{
+
+        li{
+            list-style-type:none;
+            display:inline;
+            padding:0px;
+            margin:0px;
+        }
+    }
+}
+
+
+.selected-lang {
+    width: 33px;
+    height: 11px;
+    background-repeat:no-repeat;	
+    background-color: #211E1C;
+    border: 0px solid #646464;
+    margin-left: 5px;
+    position: relative;
+    top: 4px;
+}
+
+
+#langage-tool form .button {
+    padding: 1px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 10px;
+    top: 1px;
+}
+
+
+/* Contenu global-------------------------------------------------------------------------------------------------- */
+
+
+// FIXME: move to block specific css files
+.nav {
+    background-image: image-url('base/teaser-nav-bg.jpg');
+    width: 100%;
+    height: 423px;
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+    background-position: center;
+    background-color: #282828;
+}
+
+// FIXME: explain purpose / move elsewhere / it conflicts with everything...
+
+// FIXME: move to block specific css files
+.edito {
+    color: #9d9d9d;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* --Formulaires-- */
+
+
+/* This is the list of data entry errors displayed to the user if any django
+ form fails validation */
+.errorlist {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+
+// FIXME: use color constants
+// FIXME: explain purpose
+// FIXME: move elsewhere (block/page specifc css)
+#id_content, #id_nom, #id_prenom, #id_mail, #id_subject/*,.content input*/ {
+    width: 64%;
+    border: 1px solid grey;
+    color: white;
+    background-color: #242424;
+    font-size: 11px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    @include border-radius(4px);
+}
+
+#id_content {
+    height: 50px;
+    padding: 4px;
+}
+
+#id_nom, #id_prenom, #id_mail, #id_subject/*,.content input*/ {
+    height: 12px;
+    padding: 4px;
+}
+
+
+
+.rss img {
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+//hp field 
+#required_field{
+    display: none;
+}
