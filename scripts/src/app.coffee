@@ -1,5 +1,5 @@
 angular.element(document).on('ready page:load', ->
-        angular.module('project_sheet', ['project_sheet.controllers', 'project_sheet.services'])
+        angular.module('project_sheet', ['project_sheet.controllers', 'project_sheet.services', 'project_sheet.directives'])
 
         angular.module('unisson_projects', ['project_sheet', 'ui.router', 'ngAnimate', 'restangular', 'angular-unisson-auth', 'xeditable', 'chieffancypants.loadingBar'])
 
