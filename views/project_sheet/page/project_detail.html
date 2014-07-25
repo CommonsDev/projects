@@ -24,15 +24,14 @@
 	</div> <!-- .project-main -->
 
 	<div class="span4 project-sidebar">
-	  <!-- Direct link to project admin for staff members -->
-	  {% if request.user.is_staff and project %}
-         [<a href="{% url admin:project_sheet_i4pproject_change project.pk  %}">{% trans "Manage project" %}</a>]
-     {% endif %}
-     {% if project_translation %}
-	    <div class="project-members member-block clearfix">
+        <!-- Direct link to project admin for staff members -->
+        <a ng-if="request.user.is_staff" href="#admin:project_sheet_i4pproject_change project.pk">Manage/Edit project</a>
+     
+     <!-- FIXME : Project community block -->
+	   <!--  <div class="project-members member-block clearfix">
 		<h2>
 		    <i class="sheet-members"></i>
-		    {% trans "Project Community"|capfirst %}</h2>
+		    Project Community"|capfirst %}</h2>
 
 
         {% with num_team_member=project.detailed_members.all.count num_fans=project.detailed_fans.all.count %}
@@ -47,7 +46,7 @@
                   <a  href="#" class="seemore"
                     data-modal-target-id="memberlist-modal-seeall-{{ memberlist_modal_seeall_unique_counter }}"
                     data-toggle="i4p-memberlist-modal-seeall"
-                    >{% trans "More info" %}</a>
+                    >More info" %}</a>
                 {% endcomment %}
                 {% endwith %}
             {% endif %}
@@ -63,7 +62,6 @@
 
             {% if not request.user in project.fans.all and not request.user in project.members.all %}
                <div class="fans-not-a-fan-block">
-               <!-- {% trans "Become a fan of this project" %} -->
                <form id="fans-add-form" method='POST' action='{% url project_sheet-instance-add-fan project.slug %}'>
                {% csrf_token %}
                {{ project_fan_add_form.as_p }}
@@ -94,8 +92,8 @@
         {% with num_fans=project.detailed_fans.count %}
 
             {% if num_fans == 0 %}
-                <h3>{% trans "The fans" %}</h3>
-                <p class="fans-no-fans-yet">{% trans "No fans yet" %}
+                <h3>The fans" %}</h3>
+                <p class="fans-no-fans-yet">No fans yet" %}
             {% else %}
                 <h3>{% blocktrans count num_fans=num_fans %}
                 The fans
@@ -108,7 +106,6 @@
 
             {% if not request.user in project.fans.all %}
                <div class="fans-not-a-fan-block">
-               <!-- {% trans "Become a fan of this project" %} -->
                <form id="fans-add-form" method='POST' action='{% url project_sheet-instance-add-fan project.slug %}'>
                {% csrf_token %}
                {{ project_fan_add_form.as_p }}
@@ -126,9 +123,9 @@
         {% endwith %}
 {%endcomment%}
 
-      </div>
+      </div> -->
 
-	    {% include "workgroup/block/grouplist_fancy_wide.html" %}
+	    <!-- FIXME : workgroup/block/grouplist_fancy_wide.html -->
 
 	    <div class="project-gallery gallery-block clearfix">
 		<h2>
@@ -138,50 +135,38 @@
 		<div ng-include="'views/project_sheet/block/gallery_fancy_thin.html'"/>
 
 	    </div> <!-- .project-gallery -->
-
-	    {% endif %}
 	</div> <!-- .project-sidebar -->
     </div>
 </div>
 
-{% if project_translation %}
 <div class="project-inspirational">
-  <strong>{% trans "You find this project inspiring ?" %}</strong>
+  <strong>You find this project inspiring ?</strong>
   <div class="icos">
-    <form id="fans-add-form" method='POST' action='{% url project_sheet-instance-add-fan project.slug %}'>
-  		{% csrf_token %}
-       	{{ project_fan_add_form.as_p }}
-    	<span class="like"><button type="submit">&nbsp;</button>{% trans "Become a fan" %}</span>
+    <form id="fans-add-form" method='POST' action='#project_sheet-instance-add-fan project.slug'>
+    	<span class="like"><button type="submit">&nbsp;</button>Become a fan</span>
     </form>
-    <span class="discu"><a href="{% url project_discussion_list project_translation.slug %}">&nbsp;</a>{% trans "Discuss" %}</span>
-    <span class="share"><a class="addthis_button_compact" data-target="#"><br /></a>{% trans "Share" %}</span>
+    <span class="discu"><a href="#project_discussion_list project_translation.slug">&nbsp;</a>Discuss</span>
+    <span class="share"><a class="addthis_button_compact" data-target="#"><br /></a>Share</span>
 
   </div>
 </div>
-{% endif %}
 
 
 <div class="project-related clearfix">
     <div class="container">
         <!-- FIXME: use real data for related project list once in the datamodel -->
-        <h2>
-            {% trans "You might also like"|capfirst %}
-        </h2>
-        {% comment %}<a href="#FIXME-BADURL" class="seemore">{% trans "See more" %}</a>{%endcomment%}
-        {% if related_projects %}
-          {% include "project_sheet/block/cardlist_card_wide.html" with project_list=related_projects %}
-        {% else %}
-           {% url project_sheet-instance-edit-tags project_translation.slug as tags_url %}
-           {% blocktrans with tags_url=tags_url %}You need to <a href="{{ tags_url }}">tag this project</a> before we can suggest related projects.{% endblocktrans %}
-        {% endif %}
+        <!-- <h2>
+            You might also like
+        </h2> -->
+          <!--  FIXME : include "project_sheet/block/cardlist_card_wide.html" with project_list=related_projects %} -->
+        
+          <!-- You need to <a href="#tags_url"> tag this project</a> before we can suggest related projects. -->
     </div>
 </div>
 
 <div class="wrap-partners clearfix">
     <div class="container">
-        {% include "project_sheet/block/partner-block.html" %}
+        <!-- FIXME include "project_sheet/block/partner-block.html" -->
     </div>
 </div>
-
-{% endblock %}
 </div>

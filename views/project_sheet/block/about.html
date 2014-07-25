@@ -23,7 +23,8 @@
 	<p id="about-description-{{about_unique_counter}}">
 	  {{ project.about_section }}
 	</p>
-	{% else %}
+	<!-- {% else %}
+    FIXME : add info tips when editing new project sheet
 	<h3>{% trans "Welcome to your new project sheet!" %}</h3>
 	<br/>
 	<p>
@@ -38,32 +39,27 @@
 	<p>
 	{% trans "At any time, if you feel lost, just use the <strong>Feedback</strong> tab, located on the right of the screen. We'll try to help you as fast as possible." %}
 	</p>
-	{% endif %}
+	{% endif %} -->
 
-	{% endwith %}<!-- %about_unique_counter -->
 </div>
 
+<link type="text/css" rel="stylesheet" href="static/css/tags/block/taglist.css" />
 <div class="project-about">
-	{% comment %} PROJECT TAGS {% endcomment %}
-
-
-
-	{% if project_translation %}
-	{% if project_sheet_themes_form %}
-	<form method='POST' action='?'>
-		{% csrf_token %}
-		{{ project_sheet_themes_form }}
+	<!-- PROJECT TAGS  -->
+	<!-- <form method='POST' action='?'>
 		<input type="submit"/>
-	</form>
-	{% else %}
-
-	{% tags_for_object project_translation as project_tags %}
-
-	{% url project_sheet-instance-edit-tags project_translation.slug as url_edit_tags %}
-	{% with taglist_title="Themes" taglist_tags=project_tags taglist_is_editable=1 taglist_edit_action=url_edit_tags %}
-	{% include "tags/block/taglist.html" %}
-	{% endwith %}
-	{% endif %}
-
-	{% endif %}
+	</form> -->
+	<!-- FIXME get tags list and load them-->
+    <div class="tag-list clearfix">
+        <h2>Themes</h2>
+        <ul>
+            <li class="edit">
+                <a href="/en/project/solelafriq/edit/tags/">edit</a>
+            </li>
+            <li ng-repeat="tag in project.themes.split(',')">
+                <a href="#">{{tag}}</a>
+            </li>
+            
+        </ul>
+    </div>
 </div> <!-- .project-about -->

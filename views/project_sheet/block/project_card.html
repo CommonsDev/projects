@@ -23,7 +23,7 @@ Parameters for this block
     <div class="bottom">
       <span ng-if="project.members.length" class="supported tipsed on" title="project with members">Project with members ({{project.members.count}})</span>
       <span ng-if="project.fans.length" class="supported faned tipsed on" title="project with fans">Project with fans ({{project.fans.count}})</span>
-      <span class="country"><img ng-src="{{ project.project.location.country.flag }}" alt="{{ project.project.location.country }}" /> {{ project.project.location.country }}</span>
+      <span ng-if="project.project.location.country" class="country"><img ng-src="{{ project.project.location.country }}" alt="" /> {{ project.project.location.country }}</span>
       <p>
             <span class="needs tipsed on" class="tipsed on" title="<strong>{{ need_count }}</strong> needs">{{ need_count }}</span>
       </p>

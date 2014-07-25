@@ -4,14 +4,14 @@
         <div id="header" class="container">
             <div id="header-bar">
                 <div id="header-right">
-                    <!-- FIXME add search bar here -->
                     <div class="search">
-                        <form action="/en/projects/search/">
+                        <form action="#/en/projects/search/">
                             <input id="id_text" type="text" name="q" placeholder="Search ..." maxlength="100">
                             <input type="submit" value="Search">
                         </form>
                     </div>
-                    <div id="connect-link">
+                    
+                     <div id="connect-link">
                         <a class="open-panel" href="javascript:void(0)">Connexion/Inscription</a>
                         <div id="connect-block" style="display:none;" showonhoverparent>
                             <div id="social-sign-in">
@@ -20,10 +20,10 @@
                                 <div id="form-user">
                                     <form action="#" method="post" class="profile_edition">
                                         <p>
-                                            <input type="submit" id="top-signin" value="{% trans 'Sign in' %}" />
+                                            <input type="submit" id="top-signin" value="{% trans 'Sign in'" />
                                         </p>
                                         <p>
-                                            <a class="password_lost" href="{% url userena_password_reset %}">I lost my password!</a>
+                                            <a class="password_lost" href="#userena_password_reset">I lost my password!</a>
                                         </p>
                                     </form>
                                 </div>
@@ -32,7 +32,7 @@
                                 <div id="not-yet">
                                     <h1>Not a member yet ?</h1>
                                     <h2>Sign-up with your email:</h2>
-                                    <a class="link" href="{% url userena_signup %}">Sign-up now !</a>
+                                    <a class="link" href="#userena_signup">Sign-up now !</a>
                                     <h2>Sign-up with a social networks:</h2>
                                     <!-- FIXME : include social network signup here -->
                                 </div>
@@ -42,44 +42,45 @@
                     <div id="me-link">
                       
                         <div id="messages-count">{{ unread_message_count }}</div>
-                        <img src="FIXME user.get_profile.get_mugshot_url" alt="" height="26" width="26" />
+                        <img src="#user.get_profile.get_mugshot_url" alt="" height="26" width="26" />
                         <a class="open-panel" href="javascript:void(0)">Me</a>
                         <div id="me-block" style="display:none;" showonhoverparent>
                             <div class="top">
                                 <div class="avatar">
-                                    <img src="FIXME{{ user.get_profile.get_mugshot_url }}" alt="" height="87" width="87" />
+                                    <img src="#user.get_profile.get_mugshot_url" alt="" height="87" width="87" />
                                 </div>
                                 <p>
                                     <strong>{{ user.username }}</strong>
                                     <em>{{ user.email }}</em>
-                                    <a href="{% url userena_profile_detail request.user %}">View my profile</a>
-                                    <a class="edit" href="{% url userena_profile_detail request.user %}edit">Edit my profile</a>
+                                    <a href="#userena_profile_detail request.user">View my profile</a>
+                                    <a class="edit" href="#userena_profile_detail request.useredit">Edit my profile</a>
                                 </p>
                             </div>
                             <div class="bottom">
                                 <ul>
-                                    <li class="msg"><a href="{% url userena_umessages_list %}">Messages</a></li>
-                                    <li class="proj"><a href="{% url userena_profile_detail request.user %}">My projects</a></li>
-                                    <li class="fav"><a href="{% url userena_profile_detail request.user %}">My favourites</a></li>
+                                    <li class="msg"><a href="#userena_umessages_list">Messages</a></li>
+                                    <li class="proj"><a href="#userena_profile_detail request.user">My projects</a></li>
+                                    <li class="fav"><a href="#userena_profile_detail request.user">My favourites</a></li>
                                 </ul>
                             </div>
-                            <a id="logout-bt" href="{% url userena_signout %}">Log out</a>
+                            <a id="logout-bt" href="#userena_signout">Log out</a>
                         </div>
                     </div>
                     <div id="interface_lang">
-                        <a class="open-panel" href="javascript:;">EN</a>
+                        <a class="open-panel" href="javascript:;">FR</a>
                         <ul>
                             <!-- FIXME: below are the 3 ways to retrieve the right URL for the translation of the current page -->
-                            <li><a href="{% page_language_url lang_code %}" title="{{ lang_name }}">{{ lang_name }}</a></li>
-                            <li><a href="{% url project_sheet-show project_translation.slug %}" title="{{ lang_name }}">{{ lang_name }}</a></li>
-                            <li><a href="{{ request.path }}" title="{{ lang_name }}">{{ lang_name }}</a></li>
+                            <li><a href="#page_language_url lang_code" title="">EN</a></li>
+                            <li><a href="#project_sheet-show project_translation.slug" title="#lang_name">ES</a></li>
                         </ul>
-                    </div>
+                    </div> 
+                
+
                 </div>
                 <div class="logo">
-                    <a ui-sref="homepage"><img src="static/images/FIXME_logo.png" alt="" border="0"/></a>
+                    <a ui-sref="homepage"><!-- FIXME <img src="static/images/logo.png" alt="" border="0"/> --></a>
                 </div>
-                <!-- FIXME : Menu {% include "menu.html" %} -->
+                <!-- FIXME : Menu {% include "menu.html" -->
             </div>
         </div>
         <div class="clear"></div>
