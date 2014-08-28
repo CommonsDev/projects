@@ -12,40 +12,24 @@ Parameters for this block
 	<a name="project-references"></a>
 	<h2>
 		<i class="sheet-references"></i>
-		{% trans "References" %}</h2>
+		References</h2>
 
 	<div class="row">
 		<div class="references-links link-list span8" >
-			{% if reference_formset %}
-			<form method="POST" action="?">
-			  {{ reference_formset }}
+			<!-- FIXME add Reference editing -->
+			<!-- <form method="POST" action="?">
 			  <input type="submit"/>
-			</form>
-			{% else %}
+			</form> -->
 			<ul>
-				{% if project_translation %}
-				{% for ref in project_translation.master.references.all %}
-				<li class="link-item">{{ ref.desc }}
+				<li class="link-item" ng-if="project.project.references" ng-repeat="ref in project.project.references">{{ ref.desc }}
 				</li>
-				{% empty %}
-				<li>{% trans 'no references'|capfirst %}</li>
-				{% endfor %}
-				{% else %}
-				<li>{% trans 'no references'|capfirst %}</li>
-				{% endif %}
-				<!-- <li class="link-item"><a href="#FIXME-ADD-REAL-LINK">Article sur classicnews</a></li> -->
+				<li ng-if="!project.project.references">No references</li>
 			</ul>
-			{% if project_translation %}
-			<a
-				href="{% url project_sheet-instance-edit-references project_translation.slug %}#references"
+			<a href="#project_sheet-instance-edit-references project_translation.slug#references"
 				class="button">
 				<i class="action-add"></i>
-				{% trans "Edit the references" %}
+				Edit the references
 			</a>
-			{% endif %}
-			{% endif %}
 		</div> <!-- .references-links link-list -->
-
-
 	</div> <!-- .row -->
 </div> <!-- .project-references -->

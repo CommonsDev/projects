@@ -36,6 +36,7 @@ $i4p-action-sprites: sprite-map("i4p-action/*.png");
     background-color: #1b1b1b;
     position: relative;
     height:300px;
+    width:100%;
     overflow:hidden;
 
     .subheader {
@@ -119,7 +120,7 @@ $i4p-action-sprites: sprite-map("i4p-action/*.png");
             
             img {
             height: 300px;
-            width: 620px;
+            //width: 620px;
             }
 
             .i4p-button {
