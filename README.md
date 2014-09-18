@@ -42,3 +42,4 @@ In an other window :
 
 ### Possible error :
 http://stackoverflow.com/questions/6675373/bundle-command-not-found-in-linux-debian
+http://stackoverflow.com/questions/7645918/require-no-such-file-to-load-mkmf-loaderror
