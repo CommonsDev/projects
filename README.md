@@ -38,3 +38,7 @@ In the static folder
 In an other window :
     
     python -m SimpleHTTPServer 8080
+
+
+### Possible error :
+http://stackoverflow.com/questions/6675373/bundle-command-not-found-in-linux-debian
