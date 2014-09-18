@@ -16,12 +16,14 @@ Projects
 ### Launch coffee watch
 
     sudo apt-get install ruby-compass ruby-fssm coffeescript
-    sudo npm install -g bower
-
     sudo npm install -g coffee-script
     cd scripts
     ./coffee_watch.sh
+    
+### Launch bower
 
+    sudo npm install -g bower
+    bower install
 
 ### Launch compass
 
