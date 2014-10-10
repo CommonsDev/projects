@@ -1,0 +1,123 @@
+@import "compass/css3/images";
+
+@mixin background-diagonal-stripes($dir: 45deg, $bg-color: gray, $stripe-color: rgba(white, 0.5), $size: 50px) {
+$transparent: rgba(black, 0);
+background-color: $bg-color;
+@include background-image(
+repeating-linear-gradient(
+$dir,
+$transparent,
+$transparent $size / 2,
+$stripe-color $size / 2,
+$stripe-color $size
+)
+);
+}
+
+/* bootstrap 3 helpers */
+
+.navbar-form input, .form-inline input {
+	width:auto;
+}
+
+#nav {
+     position: relative;
+     top: 20px;
+     margin: auto;
+}
+
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
+
+#sidebar.affix-top {
+    position: static;
+}
+
+#sidebar.affix {
+    position: fixed;
+}
+
+// Header
+header {
+
+       color: white;
+       font-family: 'Maven Pro';
+
+       .navbar {
+          background-color: transparent;
+          margin-top: 40px;
+
+          li {
+           margin-left: 5px;
+          }
+          a {
+          color: #eee;
+          font-size: 15px;
+          text-transform: uppercase;
+          font-weight: 700;
+          }
+          a:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+          }
+       }
+
+
+       	height:500px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+        .stripes {
+               @include background-diagonal-stripes(-45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1), 10px);
+               height: 100%;
+        }
+
+        .container {
+
+                   .row {
+                        height: 100%;
+
+                        .info {
+                        padding-top: 200px;
+                              position: relative; bottom: 0;
+                               height: 100%;
+                               }
+                   }
+
+
+          height: 100%;
+
+                          h1 {
+                                  font-size: 48px;
+                                  font-weight: 800;
+
+      }
+
+      h2 {
+                                  margin-top: 0px;
+        font-size: 18px;
+      }
+
+      .tags {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 1px;
+        line-height: 15px;
+      }
+
+      .about:first-letter{
+      font-size:300%;float:left;
+      }
+
+  }
+}
+
+.description {
+             padding-top: 20px;
+}

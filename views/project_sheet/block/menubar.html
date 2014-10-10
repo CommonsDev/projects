@@ -12,13 +12,6 @@
     	  <li class="{% iftab 'project_sheet' 'project' %}active{% endiftab %} project">
     	    <a href="{{ project_translation.master.get_absolute_url  }}">Project</a>
     	  </li>
-    	  <!-- support -->
-          <li class="{% iftab 'project_sheet' 'support' %}active{% endiftab %} support">
-            <a href="{% url project_support_main project_translation.slug %}">
-              Needs
-              <span class="badge">{{need_count}}</span>
-            </a>
-          </li>
           <!-- discussion -->
           <li class="{% iftab 'project_sheet' 'discuss' %}active{% endiftab %} discuss">
             <a href="{% url project_discussion_list project_translation.slug %}">
