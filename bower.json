@@ -22,16 +22,15 @@
   ],
   "dependencies": {
     "underscore": "~1.6.0",
-    "modernizr": "~2.7.2",
     "jquery": "~2.1.0",
-    "angular": "~1.2.16",
-    "angular-animate": "~1.2.16",
+    "angular": "~1.2.26",
+    "angular-animate": "~1.2.26",
     "angular-cookies": "~1.2.10",
-    "angular-file-upload": "~0.3.1",
-    "angular-ui-router": "0.2.8-bowratic-tedium",
-    "restangular": "~1.4.0",
-    "angular-unisson-auth": "~0.1.4",
+    "angular-file-upload": "latest",
+    "angular-ui-router": "latest",
+    "restangular": "latest",
     "angular-xeditable": "~0.1.8",
-    "angular-loading-bar": "~0.4.1"
+    "angular-loading-bar": "~0.4.1",
+    "bootstrap": "~3.3.0"
   }
 }

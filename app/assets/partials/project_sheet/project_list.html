@@ -1,0 +1,24 @@
+﻿<!-- 'These experiences have a positive social impact and create social goodwill. they demonstrate a disruptive inventiveness and can be easily disseminated and scaled in other places or cultural contexts.'
+
+'Find projects on ' {{ site.name }} -->
+
+<!-- <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url project_sheet-new-projects-rss %}" />-->
+
+<!--
+<script type="text/javascript" src="js/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.blockUI.js"></script>
+
+<script type="text/javascript" src="js/jquery/jquery.example.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.idTabs.min.js"></script>
+-->
+
+<div class="content">
+  <div class="container">
+    <div id="projects_list">
+        <div class="project_list_project_container">
+          <div ng-repeat="project in projects" ng-include="'partials/project_sheet/block/project_card.html'"/>
+        </div>
+    </div>
+<!--    paginate using "project_sheet/block/project_list_pagination.html"  -->
+  </div>
+</div>
