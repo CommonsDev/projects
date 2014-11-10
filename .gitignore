@@ -7,3 +7,5 @@ static/css
 static/compiled_images
 .DS_Store
 scripts/vendor
+_public/
+bower_components/

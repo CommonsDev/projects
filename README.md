@@ -8,39 +8,22 @@ Projects
 
 ### Updating config.js
 
-    cd scripts
-    cp config.js.sample config.js
+    mkdir _public
+    cp app/scripts/config.js.sample _public/js/config.js
     
-  In config.js, change rest_uri with the API you use: "http://imaginationforpeople.org/api/v1"
+  In config.js, change rest_uri with the API you use: "http://data.patapouf.org/api/v1"
 
-### Launch coffee watch
+### Install dependencies
 
     sudo apt-get install ruby-compass ruby-fssm coffeescript
-    sudo npm install -g coffee-script
-    cd scripts
-    ./coffee_watch.sh
+    npm install
+    node_modules/.bin/bower install
     
-### Launch bower
+### Launch a developement server
 
-    sudo npm install -g bower
-    bower install
-
-### Launch compass
-
-    sudo gem install compass
-
-In the static folder
-
-    bundle install
-    compass compile
-    compass watch
-
-### Run the server 
-
-In an other window :
+    node_modules/.bin/brunch watch --server
     
-    python -m SimpleHTTPServer 8080
-
+then point your browser at `http://localhost:3333`
 
 ### Possible error :
 http://stackoverflow.com/questions/6675373/bundle-command-not-found-in-linux-debian
