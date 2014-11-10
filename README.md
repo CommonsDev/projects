@@ -2,7 +2,6 @@ Projects
 ========
 
 ### Geting the code 
-    mkdir projects
     
     git clone https://github.com/UnissonCo/projects.git
 
@@ -11,7 +10,7 @@ Projects
     mkdir _public
     cp app/scripts/config.js.sample _public/js/config.js
     
-  In config.js, change rest_uri with the API you use: "http://data.patapouf.org/api/v1"
+  In config.js, change rest_uri with the API you use: "http://your.dataserver.host/api/v1"
 
 ### Install dependencies
 
