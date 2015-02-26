@@ -4,7 +4,7 @@ exports.config =
             sass:
                 mode:'native'
                 options:
-                    includePaths: :["bower_components/compass-mixins/lib/"]
+                    includePaths: ["bower_components/compass-mixins/lib/"]
 
         conventions:
                 assets: /^app\/assets\//
