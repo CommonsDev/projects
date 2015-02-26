@@ -1,4 +1,11 @@
 exports.config =
+
+        plugins:
+            sass:
+                mode:'native'
+                options:
+                    includePaths: :["bower_components/compass-mixins/lib/"]
+
         conventions:
                 assets: /^app\/assets\//
         paths:
